@@ -7,14 +7,18 @@ class WatermelonOrder(object):
     imported = False
     shape = "natural"
     seasons = ["Fall", "Summer"]
+    cost = 5.0
 
 
     def get_price(self, qty):
         """Calculate price, given a number of melons ordered."""
-
-        total = 0   # TODO, calculate the real amount!
-
-        return total
+        
+        subtotal = self.cost * qty
+        # purchasing 3 or more watermelons incurs a discount of 25% off
+        if qty >= 3:
+            return subtotal * .75
+        else:
+            return subtotal
 
 
 class CantaloupeOrder(object):
@@ -23,13 +27,19 @@ class CantaloupeOrder(object):
     imported = False
     shape = "natural"
     seasons = ["Spring", "Summer"]
+    cost = 5.0
+
 
     def get_price(self, qty):
         """ Calculate price, given a number of melons ordered."""
+        
+        subtotal = self.cost * qty
+        # purchasing 5 or more cantaloupes incurs a discount of 50% off
+        if qty >= 5:
+            return subtotal * .5
+        else:
+            return subtotal
 
-        total = 0
-
-        return total
 
 class CasabaOrder(object):
     species = "Casaba"
@@ -37,11 +47,19 @@ class CasabaOrder(object):
     imported = True
     shape = "natural"
     seasons = ["Spring", "Summer", "Fall", "Winter"]
+    cost = 6.0
+
 
     def get_price(self, qty):
         """ Calculate price, given a number of melons orderd. """
-        total = 0
+        
+        #Imported melons incure a shipping cost of 1.5* their total cost
+        import_shipping = 1.5
+
+        total = self.cost * qty * import_shipping
+        
         return total
+
 
 class SharlynOrder(object):
     species = "Sharlyn"
@@ -49,11 +67,19 @@ class SharlynOrder(object):
     imported = True
     shape = "natural"
     seasons = ["Summer"]
+    cost = 5.0
+
 
     def get_price(self, qty):
+        """ Calculate price, given a number of melons orderd. """
+       
+        #Imported melons incure a shipping cost of 1.5* their total cost
+        import_shipping = 1.5
 
-        total = 0
+        total = self.cost * qty * import_shipping
+        
         return total
+
 
 class SantaClausOrder(object):
     species = "Santa Claus"
@@ -61,10 +87,19 @@ class SantaClausOrder(object):
     imported = True
     shape = "natural"
     seasons = ["Winter", "Spring"]
+    cost = 5.0
+
 
     def get_price(self, qty):
-        total = 0
+        """ Calculate price, given a number of melons orderd. """
+        
+        #Imported melons incure a shipping cost of 1.5* their total cost
+        import_shipping = 1.5
+
+        total = self.cost * qty * import_shipping
+        
         return total
+
 
 class ChristmasOrder(object):
     species = "Christmas"
@@ -74,6 +109,7 @@ class ChristmasOrder(object):
     seasons = ["winter"]
     cost = 5.0
 
+
     def get_price(self, qty):
         """ Calculate price, given a number of melons ordered."""
 
@@ -81,19 +117,26 @@ class ChristmasOrder(object):
 
         return total
 
+
 class HornedMelonOrder(object):
     species = "Horned Melon"
     color = "yellow"
     imported = True
     shape = "natural"
     seasons = ["Summer"]
+    cost = 5.0
+
 
     def get_price(self, qty):
         """ Calculate price, given a number of melons ordered."""
 
-        total = 0
+        #Imported melons incure a shipping cost of 1.5* their total cost
+        import_shipping = 1.5
+
+        total = self.cost * qty * import_shipping
 
         return total
+
 
 class XiguaOrder(object):
     species = "Xigua"
@@ -101,13 +144,21 @@ class XiguaOrder(object):
     imported = True
     shape = "square"
     seasons = ["Summer"]
+    cost = 5.0
+
 
     def get_price(self, qty):
         """ Calculate price, given a number of melons ordered."""
 
-        total = 0
+        #Imported melons incure a shipping cost of 1.5* their total cost
+        import_shipping = 1.5
+        # Square melons incure an extra fee of 2x the cost 
+        square_fee = 2.0
+
+        total = self.cost * qty * import_shipping * square_fee
 
         return total
+
 
 class OgenOrder(object):
     species = "Ogen"
@@ -115,10 +166,12 @@ class OgenOrder(object):
     imported = False
     shape = "natural"
     seasons = ["Spring", "Summer"]
+    cost = 6.0
+
 
     def get_price(self, qty):
         """ Calculate price, given a number of melons ordered."""
 
-        total = 0
+        total = self.cost * qty
 
         return total
