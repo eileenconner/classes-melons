@@ -1,7 +1,13 @@
-"""This file should have our melon-type classes in it."""
+class MelonOrder(object):
 
 
-class WatermelonOrder(object):
+    def get_base_price(self):
+        MELON_BASE_PRICE = 5.0
+        
+        return MELON_BASE_PRICE
+
+
+class WatermelonOrder(MelonOrder):
     species = "Watermelon"
     color = "green"
     imported = False
@@ -17,11 +23,11 @@ class WatermelonOrder(object):
         # purchasing 3 or more watermelons incurs a discount of 25% off
         if qty >= 3:
             return subtotal * .75
-        else:
-            return subtotal
+        
+        return subtotal
 
 
-class CantaloupeOrder(object):
+class CantaloupeOrder(MelonOrder):
     species = "cantaloupe"
     color = "tan"
     imported = False
@@ -37,11 +43,10 @@ class CantaloupeOrder(object):
         # purchasing 5 or more cantaloupes incurs a discount of 50% off
         if qty >= 5:
             return subtotal * .5
-        else:
-            return subtotal
+        return subtotal
 
 
-class CasabaOrder(object):
+class CasabaOrder(MelonOrder):
     species = "Casaba"
     color = "green"
     imported = True
@@ -61,7 +66,7 @@ class CasabaOrder(object):
         return total
 
 
-class SharlynOrder(object):
+class SharlynOrder(MelonOrder):
     species = "Sharlyn"
     color = "tan"
     imported = True
@@ -81,7 +86,7 @@ class SharlynOrder(object):
         return total
 
 
-class SantaClausOrder(object):
+class SantaClausOrder(MelonOrder):
     species = "Santa Claus"
     color = "green"
     imported = True
@@ -101,7 +106,7 @@ class SantaClausOrder(object):
         return total
 
 
-class ChristmasOrder(object):
+class ChristmasOrder(MelonOrder):
     species = "Christmas"
     color = "green"
     imported = False
@@ -118,7 +123,7 @@ class ChristmasOrder(object):
         return total
 
 
-class HornedMelonOrder(object):
+class HornedMelonOrder(MelonOrder):
     species = "Horned Melon"
     color = "yellow"
     imported = True
@@ -138,7 +143,7 @@ class HornedMelonOrder(object):
         return total
 
 
-class XiguaOrder(object):
+class XiguaOrder(MelonOrder):
     species = "Xigua"
     color = "black"
     imported = True
@@ -160,7 +165,7 @@ class XiguaOrder(object):
         return total
 
 
-class OgenOrder(object):
+class OgenOrder(MelonOrder):
     species = "Ogen"
     color = "tan"
     imported = False
